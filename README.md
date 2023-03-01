@@ -75,7 +75,8 @@ Para poder testar os endpoints da aplicação deve ter a ferramenta Postman inst
 E uma IDE de sua preferência, Eclipse, Intellij-EDEA, VS-Code entre outras.
 # IMPORTANTE
 tenha as seguintes dependencias em seu projeto para que possa ter um bom funcionamento dos recursos REST
-<dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
