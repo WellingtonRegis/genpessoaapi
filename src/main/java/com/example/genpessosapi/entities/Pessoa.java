@@ -23,6 +23,7 @@ public class Pessoa implements Serializable {
     @Column(name = "data de nascimento")
     private String dataNascimento;
 
+
     @JsonIgnore
     @OneToMany(mappedBy = "pessoa")
     private List<Endereco> enderecos = new ArrayList<>();

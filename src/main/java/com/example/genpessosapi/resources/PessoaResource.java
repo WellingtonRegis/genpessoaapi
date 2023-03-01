@@ -4,11 +4,10 @@ import com.example.genpessosapi.entities.Pessoa;
 import com.example.genpessosapi.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -27,6 +26,19 @@ public class PessoaResource {
     @GetMapping(value = "/{id}")
     public ResponseEntity<Pessoa> findById(@PathVariable Long id){
         Pessoa pessoa = service.findById(id);
+        return ResponseEntity.ok().body(pessoa);
+    }
+
+    @PostMapping
+    public ResponseEntity<Pessoa> criarPessoa(@RequestBody Pessoa pessoa){
+        pessoa = service.criarPessoa(pessoa);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(pessoa.getId()).toUri();
+        return ResponseEntity.created(uri).body(pessoa);
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Pessoa> editarPessoa(@PathVariable Long id, @RequestBody Pessoa pessoa){
+        pessoa = service.editarPessoa(id, pessoa);
         return ResponseEntity.ok().body(pessoa);
     }
 }

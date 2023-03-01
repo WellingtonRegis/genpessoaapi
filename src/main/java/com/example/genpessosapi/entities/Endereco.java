@@ -22,6 +22,7 @@ public class Endereco implements Serializable {
 
     private boolean principal;
 
+
     @ManyToOne
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;

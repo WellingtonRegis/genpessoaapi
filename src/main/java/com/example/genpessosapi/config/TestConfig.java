@@ -29,7 +29,7 @@ public class TestConfig implements CommandLineRunner {
         Pessoa pessoa4 = new Pessoa(null, "Matilda","15/11/1989");
 
         Endereco endereco1 = new Endereco(null,"rua joão aragão","65987-159","45",true, pessoa1);
-        Endereco endereco2 = new Endereco(null,"rua joão aragão","65987-159","45",true, pessoa2);
+        Endereco endereco2 = new Endereco(null,"rua joão aragão","65987-159","45",true, pessoa1);
         Endereco endereco3 = new Endereco(null,"rua joão aragão","65987-159","45",true, pessoa3);
         Endereco endereco4 = new Endereco(null,"rua joão aragão","65987-159","45",true, pessoa4);
 
