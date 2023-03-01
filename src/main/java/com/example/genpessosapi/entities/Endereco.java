@@ -22,14 +22,15 @@ public class Endereco implements Serializable {
 
     private boolean principal;
 
-
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
 
     public Endereco(){
 
     }
+
 
     public Endereco(Long id, String logradouro, String cep, String numero, boolean principal, Pessoa pessoa) {
         this.id = id;
@@ -80,7 +81,7 @@ public class Endereco implements Serializable {
         this.principal = principal;
     }
 
-    public Pessoa getPessoa() {
+    public Pessoa getPessoa(Pessoa pessoa) {
         return pessoa;
     }
 
@@ -100,6 +101,7 @@ public class Endereco implements Serializable {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 
     //    public Pessoa getPessoa() {
 //        return pessoa;

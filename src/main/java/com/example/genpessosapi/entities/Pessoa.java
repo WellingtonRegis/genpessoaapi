@@ -24,8 +24,10 @@ public class Pessoa implements Serializable {
     private String dataNascimento;
 
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "pessoa")
+
+
+
+    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Endereco> enderecos = new ArrayList<>();
 
 

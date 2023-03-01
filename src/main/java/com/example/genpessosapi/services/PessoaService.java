@@ -1,5 +1,6 @@
 package com.example.genpessosapi.services;
 
+import com.example.genpessosapi.entities.Endereco;
 import com.example.genpessosapi.entities.Pessoa;
 import com.example.genpessosapi.repositories.PessoaRepository;
 import com.example.genpessosapi.services.exceptions.PessoaNotFoundException;
@@ -41,5 +42,9 @@ public class PessoaService {
     private void updateData(Pessoa entity, Pessoa pessoa) {
         entity.setNomeCompleto(pessoa.getNomeCompleto());
         entity.setDataNascimento(pessoa.getDataNascimento());
+    }
+
+    public Endereco criarEndereco(Endereco enderecos) {
+        return enderecos;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.genpessosapi.services;
 
 import com.example.genpessosapi.entities.Endereco;
+import com.example.genpessosapi.entities.Pessoa;
 import com.example.genpessosapi.repositories.EnderecoRepository;
 import com.example.genpessosapi.repositories.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class EnderecoService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
+
     public List<Endereco> findAll(){
         return repository.findAll();
     }
@@ -26,8 +28,28 @@ public class EnderecoService {
         return endereco.get();
     }
 
-
-    public Endereco criarEndereco(Endereco endereco){
-        return repository.save(endereco);
+    public Endereco criarEndereco(Endereco enderecos) {
+        enderecos.setId(enderecos.getId());
+        return repository.save(enderecos);
     }
+
+    public Optional<Endereco> listarEnderecos(Long id) {
+        return repository.findById(id);
+    }
+
+
+
+
+
+
+
+
+
+//    public Optional<Endereco> listarEnderecos(Long id) {
+//        return repository.findById(id);
+//    }
+
+//    public Endereco criarEndereco(Endereco endereco){
+//        return repository.save(endereco);
+//    }
 }
